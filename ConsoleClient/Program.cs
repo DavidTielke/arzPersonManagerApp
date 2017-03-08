@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Linq;
-using ARZ.PersonManagerApp.Data.DataStoring;
+using ARZ.PersonManagerApp.Infrastructure.Mappings;
 using ARZ.PersonManagerApp.Logic.PersonManagement;
 using Ninject;
 
@@ -12,9 +12,7 @@ namespace ARZ.PersonManagerApp.UI.ConsoleClient
 
         static Program()
         {
-            var kernel = new StandardKernel();
-            kernel.Bind<IPersonManager>().To<PersonManager>();
-            kernel.Bind<IPersonRepository>().To<PersonRepository>();
+            var kernel = new StandardKernel(new Aggregator().Mappings);
 
             _manager = kernel.Get<IPersonManager>();
         }

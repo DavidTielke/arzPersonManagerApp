@@ -4,17 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{A1023175-AB5F-47A9-B616-AAE3CD9E1410}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <ProjectGuid>{D35FD1CD-7AD6-4AE8-A06E-4936C51D5EF9}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ARZ.PersonManagerApp.UI.ConsoleClient</RootNamespace>
-    <AssemblyName>ConsoleClient</AssemblyName>
+    <RootNamespace>ARZ.PersonManagerApp.Infrastructure.Mappings</RootNamespace>
+    <AssemblyName>Mappings</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -24,7 +22,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -33,34 +30,36 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Ninject, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+    <Reference Include="Ninject">
       <HintPath>..\packages\Ninject.3.2.2.0\lib\net45-full\Ninject.dll</HintPath>
-      <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="Aggregator.cs" />
+    <Compile Include="Data\DataStoringMappings.cs" />
+    <Compile Include="Logic\PersonManagementMappings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\DataClasses\DataClasses.csproj">
-      <Project>{8C41E013-2118-4B96-BF51-0BFDB353A030}</Project>
-      <Name>DataClasses</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Mappings\Mappings.csproj">
-      <Project>{D35FD1CD-7AD6-4AE8-A06E-4936C51D5EF9}</Project>
-      <Name>Mappings</Name>
+    <ProjectReference Include="..\DataStoring\DataStoring.csproj">
+      <Project>{851E64FF-FCDD-4567-BBED-B9D2E033FF9C}</Project>
+      <Name>DataStoring</Name>
     </ProjectReference>
     <ProjectReference Include="..\PersonManagement\PersonManagement.csproj">
       <Project>{1AC18D58-9F12-4DD5-963D-09E8AC5DC17A}</Project>
       <Name>PersonManagement</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="CrossCutting\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
