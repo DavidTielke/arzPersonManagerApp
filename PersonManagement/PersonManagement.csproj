@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AgeStatistic.cs" />
+    <Compile Include="IPersonManager.cs" />
     <Compile Include="PersonManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

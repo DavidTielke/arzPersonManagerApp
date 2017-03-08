@@ -4,13 +4,13 @@ using ARZ.PersonManagerApp.Data.DataStoring;
 
 namespace ARZ.PersonManagerApp.Logic.PersonManagement
 {
-    public class PersonManager
+    public class PersonManager : IPersonManager
     {
-        private readonly PersonRepository _repository;
+        private readonly IPersonRepository _repository;
 
-        public PersonManager()
+        public PersonManager(IPersonRepository repository)
         {
-            _repository = new PersonRepository();
+            _repository = repository;
         }
 
         public IQueryable<Person> GetAllChildren()

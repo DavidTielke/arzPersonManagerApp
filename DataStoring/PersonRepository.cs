@@ -4,7 +4,7 @@ using ARZ.PersonManagerApp.CrossCutting.DataClasses;
 
 namespace ARZ.PersonManagerApp.Data.DataStoring
 {
-    public class PersonRepository
+    public class PersonRepository : IPersonRepository
     {
         public IQueryable<Person> LoadAll()
         {

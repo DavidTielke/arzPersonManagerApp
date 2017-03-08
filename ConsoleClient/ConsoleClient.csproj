@@ -33,6 +33,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Ninject, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.3.2.2.0\lib\net45-full\Ninject.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -48,11 +52,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DataClasses\DataClasses.csproj">
       <Project>{8C41E013-2118-4B96-BF51-0BFDB353A030}</Project>
       <Name>DataClasses</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataStoring\DataStoring.csproj">
+      <Project>{851E64FF-FCDD-4567-BBED-B9D2E033FF9C}</Project>
+      <Name>DataStoring</Name>
     </ProjectReference>
     <ProjectReference Include="..\PersonManagement\PersonManagement.csproj">
       <Project>{1AC18D58-9F12-4DD5-963D-09E8AC5DC17A}</Project>
